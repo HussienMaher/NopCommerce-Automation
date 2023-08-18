@@ -19,7 +19,7 @@ it('add two products to wishlist',()=>{
     ad.addProduct2ToWishlist()
     cy.wait(1000)
 })
-it.only('add two products to compare list',()=>{
+it('add two products to compare list',()=>{
     const ad = new addProduct
     ad.addProduct1ToCompareList()
     ad.addProduct2ToCompareList()
