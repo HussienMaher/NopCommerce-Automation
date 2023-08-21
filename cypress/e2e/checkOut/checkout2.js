@@ -1,3 +1,5 @@
+import check1 from "./checkout1"
+
 class check2{
 
     get nextday(){
@@ -13,6 +15,9 @@ class check2{
     }
     toPayment(){
         this.topayment.click()
+    }
+    checkout2(){
+        this.choosedelevry().toPayment()
     }
 
 }

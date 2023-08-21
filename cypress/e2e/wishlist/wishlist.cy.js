@@ -13,7 +13,7 @@ it('change product quantity',()=>{
     const list = new wishlist
     list.updateWishlist(4)
 })
-it.only('change product quantity',()=>{
+it('change product quantity',()=>{
     const e = faker.internet.email()
     const list = new wishlist
     list.emailToFriend(e)

@@ -1,3 +1,5 @@
+import check4 from "./checkout4"
+
 class check3{
 
     get credit(){
@@ -14,6 +16,10 @@ class check3{
     }
     toPaymentInfo(){
         this.continue.click()
+    }
+    checkout3(){
+        this.chooseCredit().toPaymentInfo()
+        return check4
     }
 
 }

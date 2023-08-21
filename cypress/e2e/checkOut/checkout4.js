@@ -1,3 +1,6 @@
+import { faker } from "@faker-js/faker"
+import check5 from "./checkout5"
+
 class check4{
 
     get cardtype(){
@@ -48,6 +51,14 @@ class check4{
     }
     Continue(){
         this.continue.click()
+    }
+    checkout4(){
+        const name = faker.finance.accountName()
+        const number = faker.finance.accountNumber()
+        const Code = faker.finance.creditCardCVV()
+        this.selectCardType(1).enterHolderName(name).enterCardNumber(451984984554).selectExMonth('5').selectExYear('2028')
+        .enterCardCode(Code).Continue()
+            return check5
     }
 
 }

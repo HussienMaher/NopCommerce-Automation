@@ -1,3 +1,4 @@
+import shopping from "../shoppingCart/shoppingCart"
 import check2 from "./checkout2"
 
 class check1{
@@ -21,7 +22,7 @@ class check1{
         return cy.get('#BillingNewAddress_PhoneNumber')
     }
     get continue(){
-        return cy.get('.new-address-next-step-button')
+        return cy.get('.new-address-next-step-button').eq(0)
     }
     get savedInfo(){
         return cy.get('.new-address-next-step-button').eq(0)
@@ -59,6 +60,12 @@ class check1{
     }
     confirmAddress(){
         this.savedInfo.click()
+        return check2
+    }
+    checkout1(sc,s,c,a,z,p){
+        const cart = new shopping
+        cart.chechoutCart()
+        this.selectCountry(sc).selectState(s).enterCity(c).enterAddress1(a).enterZip(z).enterPohne(p).Continue()
         return check2
     }
 
