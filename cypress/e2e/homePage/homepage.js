@@ -1,9 +1,8 @@
-import computer from "../porductPage/Computer"
 import login from "../register&login/log"
-import prodcut from "../porductPage/macBook"
 import register from "../register&login/reg"
 import electronics from "../categories/computers"
 import computers from "../categories/computers"
+import build from "../buildYourComputer/bulidYourComputer"
 
 class homepage{
 
@@ -46,34 +45,40 @@ openLogin(){
 }
 addProduct(){
     this.addproduct.click()
-    return prodcut
+    return build
 }
 openProduct(){
     this.productPage.click()
-    return computer
+    return build
 }
 openProductPage(){
     const log = new login
     log.loginUser()
     this.openProduct()
-    return computer
+    return build
 }
 openProduct2Page(){
     const log = new login
     log.loginUser()
     this.addProduct()
-    return prodcut
+    return build
 }
 openElectronics(){
+    const log = new login
+    log.loginUser()
     this.homepage().category.click()
     this.electronics.click()
     return electronics
 }
 openJewelry(){
+    const log = new login
+    log.loginUser()
     this.homepage().category.click()
     this.jewelry.click()
 }
 openComputers(){
+    const log = new login
+    log.loginUser()
     this.homepage().category.click()
     this.computers.click()
     return computers

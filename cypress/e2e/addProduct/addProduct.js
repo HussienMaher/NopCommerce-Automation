@@ -1,4 +1,5 @@
 import computers from "../categories/computers"
+/// <reference types="Cypress" />
 
 class addProduct{
     get product1CartButton(){
@@ -19,41 +20,47 @@ class addProduct{
     get product2CompareButton(){
         return cy.get('.add-to-compare-list-button').eq(5)
     }
+    get alert(){
+        return cy.get('.close')
+    }
 
+    closeAlert(){
+        this.alert.click()
+    }
     addProduct1ToCart(){
         const comp = new computers
         comp.openNotbooks()
         this.product1CartButton.click()
+        this.closeAlert()
         return this
     }
     addProduct2ToCart(){
-        const comp = new computers
-        comp.openNotbooks()                     //notification blockig the button
         this.prodcut2CartButton.click()
+        this.closeAlert()
         return this
     }
     addProduct1ToWishlist(){
         const comp = new computers
         comp.openNotbooks()
         this.product1wishlistButton.click()
+        this.closeAlert()
         return this
     }
-    addProduct2ToWishlist(){
-        const comp = new computers
-        comp.openNotbooks()                     
+    addProduct2ToWishlist(){                   
         this.product2wishlistButton.click()
+        this.closeAlert()
         return this
     }
     addProduct1ToCompareList(){
         const comp = new computers
         comp.openNotbooks()
         this.product1CompareButton.click()
+        this.closeAlert()
         return this
     }
-    addProduct2ToCompareList(){
-        const comp = new computers
-        comp.openNotbooks()                     
+    addProduct2ToCompareList(){               
         this.product2CompareButton.click()
+        this.closeAlert()
         return this
     }
 }

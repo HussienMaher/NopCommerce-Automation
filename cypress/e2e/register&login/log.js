@@ -1,8 +1,8 @@
+/// <reference types="Cypress" />
 import homepage from "../homePage/homepage"
 import register from "./reg"
 import {faker} from '@faker-js/faker';
 class login{
-
 get email(){
     return cy.get('#Email')
 }
@@ -20,6 +20,9 @@ get registerB(){
 }
 get forgot(){
     return cy.get('.forgot-password')
+}
+get x(){
+    return cy.get('li').eq(1)
 }
 
 //methods
@@ -54,8 +57,12 @@ loginUser(){
     const firstName = faker.person.firstName()
     const lastName = faker.person.lastName()
     reg.registerUser(email,pass,firstName,lastName)
+    this.x.then((a)=>{
+        var t = a.text()
+        if(t == "Log in"){
     home.openLogin()
     this.enterEmail(email).enterpassword(pass).rememberMe().clickLogin()
+      }})
 }
 invalidPassLogin(){
     const reg = new register
@@ -70,8 +77,10 @@ invalidPassLogin(){
 }
 unregisteredEmailLogin(){
     const home = new homepage
+    const email = faker.internet.email()
+    const pass = faker.internet.password()
     home.homepage().openLogin()
-    this.enterEmail('tomsmi0th@gmail.com').enterpassword(123456).rememberMe().clickLogin()
+    this.enterEmail(email).enterpassword(pass).rememberMe().clickLogin()
 }
 }
 export default login
